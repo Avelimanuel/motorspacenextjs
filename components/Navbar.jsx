@@ -1,5 +1,11 @@
+"use client";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 const Navbar = () => {
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
   return (
     <div>
       <nav className="bg-blue-100 border-b border-blue-500">
@@ -10,9 +16,10 @@ const Navbar = () => {
               <button
                 type="button"
                 id="mobile-dropdown-button"
-                className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="relative inline-flex border-white items-center justify-center rounded-md p-2 text-blue-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               >
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Open main menu</span>
@@ -36,37 +43,39 @@ const Navbar = () => {
             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               {/* <!-- Logo --> */}
               <Link className="flex flex-shrink-0 items-center" href="/">
-                <img
-                  className="h-10 w-auto"
-                  src="images/carfavicon.png"
-                  alt="PropertyPulse"
-                />
+                {/* Company logo here */}
 
                 <span className=" md:block text-blue-600 text-2xl font-bold ml-2">
                   Motor space
                 </span>
               </Link>
               {/* <!-- Desktop Menu Hidden below md screens --> */}
-              <div className="hidden md:ml-6 md:block">
+              <div className="hidden md:ml-6 md:block ml-6">
                 <div className="flex space-x-2">
                   <Link
                     href="/"
-                    className="text-black hover:bg-blue-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${
+                      pathname === "/" ? "bg-blue-300" : ""
+                    } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
                   >
                     Home
                   </Link>
                   <Link
                     href="/vehicles"
-                    className="text-black hover:bg-blue-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${
+                      pathname === "/vehicles" ? "bg-blue-300 " : ""
+                    } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
                   >
                     Vehicles
                   </Link>
-                  <Link
+                  {isLoggedIn && (<Link
                     href="/vehicles/addvehicle"
-                    className="text-black hover:bg-blue-900 hover:text-white rounded-md px-3 py-2"
+                    className={`${
+                      pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
+                    } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
                   >
                     Add Vehicle
-                  </Link>
+                  </Link>)}
                 </div>
               </div>
             </div>
@@ -82,37 +91,40 @@ const Navbar = () => {
             </div>
 
             {/* <!-- Right Side Menu (Logged In) --> */}
-           
           </div>
         </div>
 
         {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-        <div className="hidden" id="mobile-menu">
-          <div className="space-y-1 px-2 pb-3 pt-2">
-            <Link
-              href="/"
-              className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
-              Home
-            </Link>
-            <a
-              href="/vehicles"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
-              vehicles
-            </a>
-            <a
-              href="/vehicles/addvehicle"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
-              Add vehicle
-            </a>
-            <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
-              <i className="fa-brands fa-google mr-2"></i>
-              <span>Get in touch</span>
-            </button>
+        {isMobileMenuOpen && (
+          <div id="mobile-menu">
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/" ? "bg-blue-300" : ""
+                } text-black hover:bg-blue-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium `}
+              >
+                Home
+              </Link>
+              <Link
+                href="/vehicles"
+                className={`${
+                  pathname === "/vehicles" ? "bg-blue-300" : ""
+                } text-black hover:bg-blue-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium `}
+              >
+                vehicles
+              </Link>
+             {isLoggedIn && ( <Link
+                href="/vehicles/addvehicle"
+                className={`${
+                  pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
+                } text-black hover:bg-blue-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium `}
+              >
+                Add vehicle
+              </Link>)}
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </div>
   );
