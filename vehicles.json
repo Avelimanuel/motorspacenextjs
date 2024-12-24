@@ -31,6 +31,7 @@
       "Coffee Maker"
     ],
     "price": "1,400 000",
+    "transmission":"Automatic",
     "color": "silver",
     "images": ["hondafitsilver.jpeg", "a2.jpg", "a3.jpg"],
     "is_featured": false,
@@ -60,11 +61,7 @@
       "Outdoor Grill/BBQ"
     ],
     "price": "1,720 000",
-    "seller_info": {
-      "name": "Sarah Wilson",
-      "email": "sarah@gmail.com",
-      "phone": "305-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["sientabluepic1.jpeg", "f2.jpg", "f3.jpg"],
     "is_featured": true,
     "createdAt": "2024-01-06T00:00:00.000Z",
@@ -102,11 +99,7 @@
       "Coffee Maker"
     ],
     "price": "1,400 000",
-    "seller_info": {
-      "name": "David Johnson",
-      "email": "david@gmail.com",
-      "phone": "213-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["balenowhite.jpeg", "c2.jpg", "c3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-03T00:00:00.000Z",
@@ -143,11 +136,7 @@
       "Outdoor Grill/BBQ"
     ],
     "price": "1,400 000",
-    "seller_info": {
-      "name": "Jane Smith",
-      "email": "jane@gmail.com",
-      "phone": "212-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["balenoorange.jpeg", "b2.jpg", "b3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-02T00:00:00.000Z",
@@ -176,11 +165,7 @@
       "Coffee Maker"
     ],
     "price": "1,600 000",
-    "seller_info": {
-      "name": "Emily Davis",
-      "email": "emily@gmail.com",
-      "phone": "512-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["fitshuttleblack.jpeg", "d2.jpg", "d3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-04T00:00:00.000Z",
@@ -209,11 +194,7 @@
       "Outdoor Grill/BBQ"
     ],
     "price": "2,200 000",
-    "seller_info": {
-      "name": "Michael Brown",
-      "email": "michael@gmail.com",
-      "phone": "312-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["xtrailsilver.jpeg", "e2.jpg", "e3.jpg"],
     "is_featured": true,
     "createdAt": "2024-01-05T00:00:00.000Z",
@@ -246,11 +227,7 @@
       "nightly": 475,
       "weekly": 2000
     },
-    "seller_info": {
-      "name": "Robert Anderson",
-      "email": "robert@gmail.com",
-      "phone": "303-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["hondavezelblack.jpeg", "g2.jpg", "g3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-07T00:00:00.000Z",
@@ -269,9 +246,7 @@
       "zipcode": "81611"
     },
     "price": "870,000",
-    "beds": 3,
-    "baths": 2,
-    "square_feet": 1800,
+    "transmission":"Automatic",
     "amenities": [
       "Ski Equipment Storage",
       "Fireplace",
@@ -282,11 +257,7 @@
       "nightly": 300,
       "weekly": 1100
     },
-    "seller_info": {
-      "name": "Jennifer Martin",
-      "email": "jennifer@gmail.com",
-      "phone": "970-555-5555"
-    },
+   
     "images": ["daihatsumovered.jpeg", "h2.jpg", "h3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-08T00:00:00.000Z",
@@ -319,11 +290,7 @@
       "weekly": 1000,
       "monthly": 3800
     },
-    "seller_info": {
-      "name": "Lisa Taylor",
-      "email": "lisa@gmail.com",
-      "phone": "303-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["demiowhite.jpeg", "i2.jpg", "i3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-09T00:00:00.000Z",
@@ -355,11 +322,7 @@
       "weekly": 550,
       "monthly": 2100
     },
-    "seller_info": {
-      "name": "Matthew Harris",
-      "email": "matthew@gmail.com",
-      "phone": "215-555-5555"
-    },
+    "transmission":"Automatic",
     "images": ["whitehondashuttle.jpeg", "j2.jpg", "j3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-10T00:00:00.000Z",

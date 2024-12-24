@@ -5,38 +5,45 @@ const VehicleCard = ({ vehicle }) => {
     <div className="rounded-xl shadow-md relative">
       <Image
         src={`/images/properties/${vehicle.images[0]}`}
-        width='0'
-        height='0'
+        width="0"
+        height="0"
         sizes="100vw"
         alt=""
         className="w-full h-auto rounded-t-xl"
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
-          
           <h3 className="text-xl font-bold">{vehicle.name}</h3>
           <div className="text-red-500 font-bold">Ksh.{vehicle.price}</div>
         </div>
-        
+        <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
+          Available
+        </h3>
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i className="fa-solid fa-bed"></i> Engine: 
-            <span className="md:hidden lg:inline">{vehicle.engine}</span>
+            <i className="fa-solid fa-bed text-green-900">Engine:</i>
+            <span className="md:hidden lg:inline text-green-900">
+              {vehicle.engine}
+            </span>
           </p>
           <p>
-            <i className="fa-solid fa-bath"></i> 
-            <span className="md:hidden lg:inline">{vehicle.capacity}</span>
+            <i className="fa-solid fa-bath"></i>
+            <span className="md:hidden lg:inline text-green-900">
+              {vehicle.capacity}
+            </span>
           </p>
           <p>
             <i className="fa-solid fa-ruler-combined"></i>
-            <span className="md:hidden lg:inline">{vehicle.mileage}</span>
+            <span className="md:hidden lg:inline text-green-900">
+              {vehicle.mileage}
+            </span>
           </p>
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
           <p>
-            <i className="fa-solid fa-money-bill"></i> Weekly
+            <i className="fa-solid fa-money-bill"></i> {vehicle.transmission}
           </p>
           <p>
             <i className="fa-solid fa-money-bill"></i> Monthly
