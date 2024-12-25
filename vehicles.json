@@ -1,6 +1,6 @@
 [
   {
-    "_id": "1",
+   
     "owner": "1",
     "name": "Honda Fit",
     "type": "Apartment",
@@ -14,6 +14,7 @@
     "engine": "1.4 cc",
     "capacity": "5 passengers",
     "mileage": "68000 km",
+    "YOM":2018,
     "amenities": [
       "Wifi",
       "Full kitchen",
@@ -39,7 +40,7 @@
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
   {
-    "_id": "6",
+    
     "owner": "3",
     "name": "Toyota Sienta",
     "type": "House",
@@ -53,6 +54,7 @@
     "engine": "1.5 cc",
     "capacity": "7 passengers",
     "mileage": "65000 km",
+    "YOM":2017,
     "amenities": [
       "Beach Access",
       "Swimming Pool",
@@ -68,7 +70,7 @@
     "updatedAt": "2024-01-06T00:00:00.000Z"
   },
   {
-    "_id": "3",
+    
     "owner": "2",
     "name": "Suzuki Baleno",
     "type": "Condo",
@@ -82,6 +84,7 @@
     "engine": "1.2 cc",
     "capacity": "5 passengers",
     "mileage": "69000 km",
+    "YOM":2018,
     "amenities": [
       "Wifi",
       "Full kitchen",
@@ -106,7 +109,7 @@
     "updatedAt": "2024-01-03T00:00:00.000Z"
   },
   {
-    "_id": "2",
+    
     "owner": "1",
     "name": "Suzuki Baleno",
     "type": "Apartment",
@@ -144,7 +147,7 @@
   },
 
   {
-    "_id": "4",
+    
     "owner": "2",
     "name": "Honda fit shuttle",
     "type": "Cottage Or Cabin",
@@ -172,7 +175,7 @@
     "updatedAt": "2024-01-04T00:00:00.000Z"
   },
   {
-    "_id": "5",
+    
     "owner": "3",
     "name": "Nissan Xtrail Non-Hybrid",
     "type": "Studio",
@@ -202,7 +205,7 @@
   },
 
   {
-    "_id": "7",
+    
     "owner": "4",
     "name": "Honda vezel",
     "type": "Cottage Or Cabin",
@@ -234,7 +237,7 @@
     "updatedAt": "2024-01-07T00:00:00.000Z"
   },
   {
-    "_id": "8",
+    
     "owner": "5",
     "name": "Daihatsu Move",
     "type": "Chalet",
@@ -264,7 +267,7 @@
     "updatedAt": "2024-01-08T00:00:00.000Z"
   },
   {
-    "_id": "9",
+    
     "owner": "6",
     "name": "Mazda demio",
     "type": "House",
@@ -290,14 +293,14 @@
       "weekly": 1000,
       "monthly": 3800
     },
-    "transmission":"Automatic",
+    "transmission":"Manual",
     "images": ["demiowhite.jpeg", "i2.jpg", "i3.jpg"],
     "is_featured": false,
     "createdAt": "2024-01-09T00:00:00.000Z",
     "updatedAt": "2024-01-09T00:00:00.000Z"
   },
   {
-    "_id": "10",
+    
     "owner": "7",
     "name": "Honda Fit Shuttle",
     "type": "Apartment",

@@ -43,10 +43,10 @@ const VehicleCard = ({ vehicle }) => {
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
           <p>
-            <i className="fa-solid fa-money-bill"></i> {vehicle.transmission}
+            <i className="fa-solid fa-money-bill"></i>{vehicle.transmission}
           </p>
           <p>
-            <i className="fa-solid fa-money-bill"></i> Monthly
+            <i className="fa-solid fa-money-bill"></i>{vehicle.YOM} model
           </p>
         </div>
 
