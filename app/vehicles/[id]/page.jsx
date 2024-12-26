@@ -115,7 +115,7 @@ const SingleVehiclePage = async ({ params }) => {
             </div>
           ) : (
             <p className="mt-6 text-gray-600">
-              No features available for this vehicle.
+              No more features available for this vehicle.
             </p>
           )}
         </div>
