@@ -37,6 +37,8 @@ const SingleVehiclePage = async ({ params }) => {
     "Steering Controls",
     "Cruise Control",
     "Lane Assist",
+    "Pre collision system",
+    "Turbo charged",
   ];
 
   // Normalize the features from the database to avoid case mismatches
