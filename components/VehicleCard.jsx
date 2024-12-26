@@ -13,7 +13,9 @@ const VehicleCard = ({ vehicle }) => {
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
-          <h3 className="text-xl font-bold">{vehicle.make} {vehicle.model}</h3>
+          <h3 className="text-xl font-bold">
+            {vehicle.make} {vehicle.model}
+          </h3>
           <div className="text-red-500">Ksh.{vehicle.price}</div>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-2 py-1 rounded-lg text-blue-500  text-right md:text-center lg:text-right">
@@ -36,20 +38,24 @@ const VehicleCard = ({ vehicle }) => {
           <p>
             <i className="fa-solid fa-ruler-combined"></i>
             <span className="md:hidden lg:inline text-green-900">
-              Mileage:{vehicle.mileage} km
+              Mileage - {vehicle.mileage} km
             </span>
           </p>
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
           <p>
-            <i className="fa-solid fa-money-bill"></i>{vehicle.transmissionType}
+            <i className="fa-solid fa-money-bill"></i>
+            {vehicle.yearOfManufacture} model
           </p>
           <p>
-            <i className="fa-solid fa-money-bill"></i>{vehicle.yearOfManufacture} model
+            <i className="fa-solid fa-money-bill"></i>
+            {vehicle.transmissionType}
           </p>
+
           <p>
-            <i className="fa-solid fa-money-bill"></i>{vehicle.passengerCapacity} passengers
+            <i className="fa-solid fa-money-bill"></i>
+            {vehicle.passengerCapacity} passengers
           </p>
         </div>
 

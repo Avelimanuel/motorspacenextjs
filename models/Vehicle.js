@@ -51,6 +51,10 @@ const VehicleSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    features: {
+      type: [String], // Array of strings for features
+      default: [], // Default to an empty array
+    },
   },
   { timestamps: true }
 );
