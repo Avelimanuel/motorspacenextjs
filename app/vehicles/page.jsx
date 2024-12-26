@@ -1,7 +1,12 @@
 import Link from "next/link";
 import VehicleCard from "@/components/VehicleCard";
-import vehicles from "@/vehicles.json";
-const VehiclesPage = () => {
+import connectToDatabase from "@/config/databaseconnection";
+import Vehicle from "@/models/Vehicle";
+
+const VehiclesPage = async () => {
+  await connectToDatabase();
+  const vehicles = await Vehicle.find({}).lean();
+
   return (
     <section className="px-4 py-6">
       <div className="container-xl lg:container m-auto px-4 py-6">
