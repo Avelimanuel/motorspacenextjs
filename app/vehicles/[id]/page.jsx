@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const SingleVehiclePage = async ({ params }) => {
   const { id } = params;
-
+  await connectToDatabase();
   // Ensure the vehicle exists before rendering
   const single_vehicle = await Vehicle.findById(id).lean();
 
@@ -100,7 +100,7 @@ const SingleVehiclePage = async ({ params }) => {
           {availableFeatures.length > 0 ? (
             <div className="mt-12">
               <h2 className="font-bold text-3xl text-gray-900 mb-6 font-[Poppins]">
-               More Features
+                More Features
               </h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {availableFeatures.map((feature, index) => (
