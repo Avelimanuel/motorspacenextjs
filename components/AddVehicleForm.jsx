@@ -1,12 +1,10 @@
-import React from "react";
-
 const AddVehicleForm = () => {
   return (
     <form className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded">
       <h2 className="text-3xl text-center font-semibold mb-6">Add Vehicle</h2>
 
       {/* Make, Model, Year */}
-      <div className="mb-4 flex flex-wrap gap-4">
+      <div className="mb-4 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label htmlFor="make" className="block text-gray-700 font-bold mb-2">
             Make
@@ -52,7 +50,7 @@ const AddVehicleForm = () => {
       </div>
 
       {/* Mileage, Engine Size, Passenger Capacity */}
-      <div className="mb-4 flex flex-wrap gap-4">
+      <div className="mb-4 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label
             htmlFor="mileage"
@@ -104,7 +102,7 @@ const AddVehicleForm = () => {
       </div>
 
       {/* Transmission Type, Fuel Type, Color */}
-      <div className="mb-4 flex flex-wrap gap-4">
+      <div className="mb-4 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label
             htmlFor="transmissionType"
@@ -157,7 +155,7 @@ const AddVehicleForm = () => {
       </div>
 
       {/* Local/Foreign Used, Price */}
-      <div className="mb-4 flex flex-wrap gap-4">
+      <div className="mb-4 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label
             htmlFor="localOrForeignUsed"
