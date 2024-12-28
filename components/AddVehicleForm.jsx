@@ -173,6 +173,21 @@ const AddVehicleForm = () => {
         </div>
       </div>
 
+      {/* Price */}
+      <div className="mb-4">
+        <label htmlFor="price" className="block text-gray-700 font-bold mb-2">
+          Price
+        </label>
+        <input
+          type="text"
+          id="price"
+          name="price"
+          className="border rounded w-full py-2 px-3"
+          placeholder="e.g. 25000"
+          required
+        />
+      </div>
+
       {/* Features Section */}
       <div className="mb-4">
         <label

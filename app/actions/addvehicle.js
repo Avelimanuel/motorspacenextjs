@@ -21,6 +21,7 @@ async function addVehicle(formData) {
     transmissionType: formData.get("transmissionType"),
     fuelType: formData.get("fuelType"),
     color: formData.get("color"),
+    price:formData.get('price'),
     features: features, // Add collected features
     isFeatured: formData.get("isFeatured") === "on", // Convert checkbox to boolean
     images: images, // Collected image file names

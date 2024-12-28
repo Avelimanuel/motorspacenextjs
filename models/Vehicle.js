@@ -7,6 +7,16 @@ const VehicleSchema = new Schema(
       required: true,
       trim: true,
     },
+    model: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    price: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     yearOfManufacture: {
       type: Number,
       required: true,
