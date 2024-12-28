@@ -1,7 +1,7 @@
 "use server"
 
-async function addVehicle() {
-    console.log("Vehicle added to database successfull")
+async function addVehicle(formData) {
+    console.log(formData.get('model',))
 }
 
 export default addVehicle;

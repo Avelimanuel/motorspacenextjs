@@ -1,6 +1,25 @@
+import addVehicle from "@/app/actions/addvehicle";
+
+const predefinedFeatures = [
+  "Heated Seats",
+  "Blindspot Monitoring",
+  "Reverse Camera",
+  "Parking Sensors",
+  "Leather Seats",
+  "Heated Steering",
+  "Steering Controls",
+  "Cruise Control",
+  "Lane Assist",
+  "Pre collision system",
+  "Turbo charged",
+];
+
 const AddVehicleForm = () => {
   return (
-    <form className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded">
+    <form
+      action={addVehicle}
+      className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded"
+    >
       <h2 className="text-3xl text-center font-semibold mb-6">Add Vehicle</h2>
 
       {/* Make, Model, Year */}
@@ -154,38 +173,38 @@ const AddVehicleForm = () => {
         </div>
       </div>
 
-      {/* Local/Foreign Used, Price */}
-      <div className="mb-4 flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <label
-            htmlFor="localOrForeignUsed"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Local or Foreign Used
-          </label>
-          <select
-            id="localOrForeignUsed"
-            name="localOrForeignUsed"
-            className="border rounded w-full py-2 px-3"
-            required
-          >
-            <option value="Local">Local</option>
-            <option value="Foreign">Foreign</option>
-          </select>
+      {/* Features Section */}
+      <div className="mb-4">
+        <label
+          htmlFor="features"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Features
+        </label>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          {predefinedFeatures.map((feature) => (
+            <label key={feature} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                name="features"
+                value={feature}
+                className="form-checkbox"
+              />
+              <span>{feature}</span>
+            </label>
+          ))}
         </div>
-        <div className="flex-1">
-          <label htmlFor="price" className="block text-gray-700 font-bold mb-2">
-            Price
-          </label>
-          <input
-            type="text"
-            id="price"
-            name="price"
-            className="border rounded w-full py-2 px-3"
-            placeholder="e.g. 1,400,000"
-            required
-          />
-        </div>
+      </div>
+
+      {/* Is Featured */}
+      <div className="mb-4">
+        <label
+          htmlFor="isFeatured"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Mark as Featured?
+        </label>
+        <input type="checkbox" id="isFeatured" name="isFeatured" />
       </div>
 
       {/* Images */}
@@ -199,6 +218,7 @@ const AddVehicleForm = () => {
           name="images"
           className="border rounded w-full py-2 px-3"
           multiple
+          required
         />
       </div>
 
