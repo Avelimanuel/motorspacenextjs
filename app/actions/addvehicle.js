@@ -27,6 +27,8 @@ async function addVehicle(formData) {
     images: images, // Collected image file names
     description: formData.get("description"),
   };
+ 
+  
   const newVehicle = new Vehicle(vehicleData)
   await newVehicle.save()
   revalidatePath('/','layout')

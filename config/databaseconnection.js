@@ -1,18 +1,21 @@
 import mongoose from "mongoose";
 
-let dbconnected = false;
-
+let dbConnected = false;
 const connectToDatabase = async () => {
+  mongoose.set("strictQuery", true);
+  if (dbConnected) {
+    console.log("Database is  connected");
+    return;
+  }
   try {
-    mongoose.set("strictQuery", true);
-    if (dbconnected) {
-      console.log("Database is connected");
-      return;
+    if (!process.env.MONGODB_CONNECTION_URI) {
+      throw new Error("Database Connection uri must be defined");
     }
     await mongoose.connect(process.env.MONGODB_CONNECTION_URI);
-    dbconnected = true;
+    dbConnected = true;
   } catch (error) {
-    console.log(`Could not connect to Mongo db,${error}`);
+    console.log(`Error in connecting to database ${error}`);
   }
 };
+
 export default connectToDatabase;
