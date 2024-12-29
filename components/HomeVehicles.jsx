@@ -14,7 +14,7 @@ const HomeVehicles = async () => {
       <section className="px-4 py-6">
         <div className="container-xl lg:container m-auto px-4 py-6">
           <h2 className="text-3xl font-bold text-red-500 mb-6 text-center">
-            High-Performance Vehicles
+            Recommended Vehicles
           </h2>
           {hotCars.length === 0 ? (
             <h1>No vehicles found</h1>
