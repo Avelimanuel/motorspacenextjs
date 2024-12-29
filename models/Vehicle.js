@@ -47,6 +47,9 @@ const VehicleSchema = new Schema(
       required: true,
       default: false, // False for foreign used
     },
+    description: {
+      type: String,
+    },
     fuelType: {
       type: String,
       enum: ["Petrol", "Diesel", "Electric", "Hybrid"],
