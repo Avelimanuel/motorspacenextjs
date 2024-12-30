@@ -32,7 +32,7 @@ async function addVehicle(formData) {
   const newVehicle = new Vehicle(vehicleData)
   await newVehicle.save()
   revalidatePath('/','layout')
-  redirect(`/vehicles/${newVehicle._id}`)
+  redirect(`/vehicles/${vehicle.make}-${vehicle.model}`)
 }
 
 export default addVehicle;
