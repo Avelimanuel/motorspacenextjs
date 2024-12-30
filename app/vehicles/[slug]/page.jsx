@@ -4,10 +4,14 @@ import VehicleHeaderImage from "@/components/VehicleHeaderImage";
 import Link from "next/link";
 
 const SingleVehiclePage = async ({ params }) => {
-  const { id } = params;
+  const { slug } = params; // Get the slug (make-model) from the URL
   await connectToDatabase();
-  // Ensure the vehicle exists before rendering
-  const single_vehicle = await Vehicle.findById(id).lean();
+
+  // Split the slug into make and model
+  const [make, model] = slug.split("-");
+
+  // Find the vehicle by make and model
+  const single_vehicle = await Vehicle.findOne({ make, model }).lean();
 
   if (!single_vehicle) {
     return (
