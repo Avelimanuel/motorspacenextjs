@@ -3,13 +3,11 @@ import connectToDatabase from "@/config/databaseconnection";
 import Vehicle from "@/models/Vehicle";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import cloudinary from "@/config/cloudinary";
 async function addVehicle(formData) {
   await connectToDatabase();
   const features = formData.getAll("features");
-  const images = formData
-    .getAll("images")
-    .filter((image) => image !== "") //filter any empty name
-    .map((image) => image.name); //get the image name
+  const images = formData.getAll("images").filter((image) => image !== "");
 
   const vehicleData = {
     make: formData.get("make"),
@@ -21,18 +19,38 @@ async function addVehicle(formData) {
     transmissionType: formData.get("transmissionType"),
     fuelType: formData.get("fuelType"),
     color: formData.get("color"),
-    price:formData.get('price'),
+    price: formData.get("price"),
     features: features, // Add collected features
     isFeatured: formData.get("isFeatured") === "on", // Convert checkbox to boolean
-    images: images, // Collected image file names
+
     description: formData.get("description"),
   };
- 
-  
-  const newVehicle = new Vehicle(vehicleData)
-  await newVehicle.save()
-  revalidatePath('/','layout')
-  redirect(`/vehicles/${vehicle.make}-${vehicle.model}`)
+
+  const imageUrls = [];
+  for (let imageFile of images) {
+    const imageBuffer = await imageFile.arrayBuffer();
+    const imageArray = Array.from(new Uint8Array(imageBuffer));
+    const imageData = Buffer.from(imageArray);
+
+    //convert to base 64
+    const imageBase64 = imageData.toString("base64");
+
+    //make request to cloudinary
+    const results = await cloudinary.uploader.upload(
+      `data:image/png;base64,${imageBase64}`,
+      {
+        folder: "motorspace",
+      }
+    );
+    imageUrls.push(results.secure_url);
+  }
+
+  vehicleData.images = imageUrls;
+
+  const newVehicle = new Vehicle(vehicleData);
+  await newVehicle.save();
+  revalidatePath("/", "layout");
+  redirect(`/vehicles/${newVehicle.make}-${newVehicle.model}`);
 }
 
 export default addVehicle;
