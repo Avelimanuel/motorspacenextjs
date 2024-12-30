@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://motorspace.vercel.app
+
+# Sitemaps
+Sitemap: https://motorspace.vercel.app/sitemap.xml
