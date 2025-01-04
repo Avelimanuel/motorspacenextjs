@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import addVehicle from "@/app/actions/addvehicle";
 
 const predefinedFeatures = [
@@ -10,58 +12,85 @@ const predefinedFeatures = [
   "Steering Controls",
   "Cruise Control",
   "Lane Assist",
-  "Pre collision system",
-  "Turbo charged",
+  "Pre-collision System",
+  "Turbo Charged",
+  "Keyless entry",
+  "Fog lights",
+  "Sun roof"
 ];
 
 const AddVehicleForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(event.target);
+      await addVehicle(formData); // Call the backend function
+      alert("Vehicle added successfully!");
+      event.target.reset(); // Reset the form after success
+    } catch (error) {
+      console.error("Error adding vehicle:", error);
+      alert("Failed to add vehicle. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <form
-      action={addVehicle}
-      className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded"
+      onSubmit={handleSubmit}
+      className="max-w-3xl mx-auto p-6 bg-gray-100 shadow-md rounded-lg"
     >
-      <h2 className="text-3xl text-center font-semibold mb-6">Add Vehicle</h2>
+      <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+        Add a New Vehicle
+      </h1>
 
       {/* Make, Model, Year */}
-      <div className="mb-4 flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <label htmlFor="make" className="block text-gray-700 font-bold mb-2">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
+          <label htmlFor="make" className="block text-gray-700 font-medium mb-2">
             Make
           </label>
           <input
             type="text"
             id="make"
             name="make"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. Toyota"
             required
           />
         </div>
-        <div className="flex-1">
-          <label htmlFor="model" className="block text-gray-700 font-bold mb-2">
+        <div>
+          <label
+            htmlFor="model"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Model
           </label>
           <input
             type="text"
             id="model"
             name="model"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. Corolla"
             required
           />
         </div>
-        <div className="flex-1">
+        <div>
           <label
             htmlFor="yearOfManufacture"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
-            Year of Manufacture
+            Year
           </label>
           <input
             type="number"
             id="yearOfManufacture"
             name="yearOfManufacture"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. 2020"
             required
           />
@@ -69,43 +98,43 @@ const AddVehicleForm = () => {
       </div>
 
       {/* Mileage, Engine Size, Passenger Capacity */}
-      <div className="mb-4 flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
           <label
             htmlFor="mileage"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
-            Mileage
+            Mileage (km)
           </label>
           <input
             type="number"
             id="mileage"
             name="mileage"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. 50000"
             required
           />
         </div>
-        <div className="flex-1">
+        <div>
           <label
             htmlFor="engineSize"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
-            Engine Size
+            Engine Size (cc)
           </label>
           <input
             type="text"
             id="engineSize"
             name="engineSize"
-            className="border rounded w-full py-2 px-3"
-            placeholder="e.g. 1.5 cc"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+            placeholder="e.g. 1500"
             required
           />
         </div>
-        <div className="flex-1">
+        <div>
           <label
             htmlFor="passengerCapacity"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
             Passenger Capacity
           </label>
@@ -113,7 +142,7 @@ const AddVehicleForm = () => {
             type="number"
             id="passengerCapacity"
             name="passengerCapacity"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. 5"
             required
           />
@@ -121,35 +150,35 @@ const AddVehicleForm = () => {
       </div>
 
       {/* Transmission Type, Fuel Type, Color */}
-      <div className="mb-4 flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
           <label
             htmlFor="transmissionType"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
-            Transmission Type
+            Transmission
           </label>
           <select
             id="transmissionType"
             name="transmissionType"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             required
           >
             <option value="Automatic">Automatic</option>
             <option value="Manual">Manual</option>
           </select>
         </div>
-        <div className="flex-1">
+        <div>
           <label
             htmlFor="fuelType"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-gray-700 font-medium mb-2"
           >
             Fuel Type
           </label>
           <select
             id="fuelType"
             name="fuelType"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             required
           >
             <option value="Petrol">Petrol</option>
@@ -158,44 +187,24 @@ const AddVehicleForm = () => {
             <option value="Electric">Electric</option>
           </select>
         </div>
-        <div className="flex-1">
-          <label htmlFor="color" className="block text-gray-700 font-bold mb-2">
+        <div>
+          <label htmlFor="color" className="block text-gray-700 font-medium mb-2">
             Color
           </label>
           <input
             type="text"
             id="color"
             name="color"
-            className="border rounded w-full py-2 px-3"
+            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="e.g. Silver"
             required
           />
         </div>
       </div>
 
-      {/* Price */}
-      <div className="mb-4">
-        <label htmlFor="price" className="block text-gray-700 font-bold mb-2">
-          Price
-        </label>
-        <input
-          type="text"
-          id="price"
-          name="price"
-          className="border rounded w-full py-2 px-3"
-          placeholder="e.g. 25000"
-          required
-        />
-      </div>
-
-      {/* Features Section */}
-      <div className="mb-4">
-        <label
-          htmlFor="features"
-          className="block text-gray-700 font-bold mb-2"
-        >
-          Features
-        </label>
+      {/* Features */}
+      <div className="mb-6">
+        <label className="block text-gray-700 font-medium mb-2">Features</label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {predefinedFeatures.map((feature) => (
             <label key={feature} className="flex items-center gap-2">
@@ -211,46 +220,53 @@ const AddVehicleForm = () => {
         </div>
       </div>
 
-      {/* Is Featured */}
-      <div className="mb-4">
-        <label
-          htmlFor="isFeatured"
-          className="block text-gray-700 font-bold mb-2"
-        >
-          Mark as Featured?
+      {/* Price */}
+      <div className="mb-6">
+        <label htmlFor="price" className="block text-gray-700 font-medium mb-2">
+          Price (USD)
         </label>
-        <input type="checkbox" id="isFeatured" name="isFeatured" />
+        <input
+          type="text"
+          id="price"
+          name="price"
+          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+          placeholder="e.g. 25000"
+          required
+        />
       </div>
 
       {/* Images */}
-      <div className="mb-4">
-        <label htmlFor="images" className="block text-gray-700 font-bold mb-2">
+      <div className="mb-6">
+        <label
+          htmlFor="images"
+          className="block text-gray-700 font-medium mb-2"
+        >
           Upload Images
         </label>
         <input
           type="file"
           id="images"
           name="images"
-          className="border rounded w-full py-2 px-3"
           multiple
+          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
           required
         />
       </div>
 
       {/* Description */}
-      <div className="mb-4">
+      <div className="mb-6">
         <label
           htmlFor="description"
-          className="block text-gray-700 font-bold mb-2"
+          className="block text-gray-700 font-medium mb-2"
         >
           Description
         </label>
         <textarea
           id="description"
           name="description"
-          className="border rounded w-full py-2 px-3"
           rows="4"
-          placeholder="Add a description of the vehicle"
+          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+          placeholder="Write a brief description of the vehicle"
           required
         ></textarea>
       </div>
@@ -259,9 +275,12 @@ const AddVehicleForm = () => {
       <div className="text-center">
         <button
           type="submit"
-          className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+          className={`w-full sm:w-auto bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 ${
+            isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={isSubmitting}
         >
-          Add Vehicle
+          {isSubmitting ? "Submitting..." : "Add Vehicle"}
         </button>
       </div>
     </form>
