@@ -5,7 +5,7 @@ const VehicleHeaderImage = ({ single_vehicle, image }) => {
       <div className="container-xl m-auto">
         <div className="grid grid-cols-1">
           <Image
-            src={`/images/properties/${image}`}
+            src={image}
             alt=""
             className="object-contain h-[400px] mx-auto mt-8 rounded-lg"
             width={1200}

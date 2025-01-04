@@ -2,6 +2,7 @@ import Vehicle from "@/models/Vehicle";
 import connectToDatabase from "@/config/databaseconnection";
 import VehicleHeaderImage from "@/components/VehicleHeaderImage";
 import Link from "next/link";
+import VehicleImages from "@/components/VehicleImages";
 
 const SingleVehiclePage = async ({ params }) => {
   const { slug } = params; // Get the slug (make-model) from the URL
@@ -126,6 +127,7 @@ const SingleVehiclePage = async ({ params }) => {
           )}
         </div>
       </section>
+      <VehicleImages single_vehicle={single_vehicle}  image={single_vehicle.images} />
     </>
   );
 };

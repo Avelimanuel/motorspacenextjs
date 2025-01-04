@@ -4,7 +4,7 @@ const VehicleCard = ({ vehicle }) => {
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
-        src={`/images/properties/${vehicle.images[0]}`}
+        src={vehicle.images[0]}
         width="0"
         height="0"
         sizes="100vw"
