@@ -8,21 +8,20 @@ const VehicleImages = ({ single_vehicle, image }) => {
           <Image
             src={image[0]}
             alt={`${single_vehicle.make}`}
-            className="object-cover h-[400px] mx-auto rounded-xl"
-            width={1800}
-            height={400}
+            className="object-cover mx-auto rounded-xl"
+            width={1200}
+            height={600}
             priority={true}
           />
         ) : (
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {image.map((pic, index) => (
-              <div key={index} className="col-span-1">
+              <div key={index} className="relative w-full h-60 md:h-80">
                 <Image
                   src={pic}
                   alt={`${single_vehicle.make}`}
-                  className="object-cover h-[400px] width-full rounded-xl"
-                  width={1800}
-                  height={400}
+                  className="object-cover rounded-xl"
+                  layout="fill"
                   priority={true}
                 />
               </div>
