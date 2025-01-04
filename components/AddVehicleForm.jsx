@@ -16,7 +16,9 @@ const predefinedFeatures = [
   "Turbo Charged",
   "Keyless entry",
   "Fog lights",
-  "Sun roof"
+  "Sun roof",
+  "Non hybrid",
+  "Hybrid"
 ];
 
 const AddVehicleForm = () => {
