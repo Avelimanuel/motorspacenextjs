@@ -3,7 +3,6 @@ import connectToDatabase from "@/config/databaseconnection";
 import Link from "next/link";
 import VehicleCard from "@/components/VehicleCard";
 import VehicleSearch from "@/components/VehicleSearchForm";
-import Image from "next/image";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const SearchResultsPage = async ({ searchParams }) => {
