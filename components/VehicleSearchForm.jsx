@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const VehicleSearch = () => {
-  const [vehicleName, setVehicleName] = useState(""); // Corrected casing for consistency
+  const [vehicleName, setVehicleName] = useState(""); 
   const router = useRouter();
 
   const handleSearch = (e) => {
@@ -12,7 +12,7 @@ const VehicleSearch = () => {
     if (vehicleName.trim() === "") {
       router.push("/vehicles"); // Redirect to /vehicles if input is empty
     } else {
-      const query = `?vehicleName=${vehicleName.trim()}`; // Correct query parameter name
+      const query = `?vehicleName=${vehicleName.trim()}`; 
       router.push(`/vehicles/search-results${query}`);
     }
   };
@@ -32,7 +32,7 @@ const VehicleSearch = () => {
           placeholder="Enter car name"
           className="w-full px-5 py-4 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
           value={vehicleName}
-          onChange={(e) => setVehicleName(e.target.value)} // Updated casing for consistency
+          onChange={(e) => setVehicleName(e.target.value)} 
         />
       </div>
 
