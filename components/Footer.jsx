@@ -18,23 +18,14 @@ const Footer = () => {
                   Home
                 </a>
               </li>
-              <li>
-                <a href="/popular-cars" className="hover:underline">
-                  Popular Cars
-                </a>
-              </li>
-              <li>
-                <a href="/inventory" className="hover:underline">
-                  Inventory
-                </a>
-              </li>
+
               <li>
                 <a href="/financing-options" className="hover:underline">
                   Financing Options
                 </a>
               </li>
               <li>
-                <a href="/contact-us" className="hover:underline">
+                <a href="/contact" className="hover:underline">
                   Contact Us
                 </a>
               </li>
