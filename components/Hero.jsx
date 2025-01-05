@@ -24,7 +24,7 @@ const Hero = () => {
                 className="w-full px-5 py-4 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
               />
             </div>
-            <div className="w-full md:w-2/5 md:pl-2 mb-4 md:mb-0">
+            {/* <div className="w-full md:w-2/5 md:pl-2 mb-4 md:mb-0">
               <label htmlFor="vehicle-type" className="sr-only">
                 Vehicle Type
               </label>
@@ -43,7 +43,7 @@ const Hero = () => {
                 <option value="Electric">Electric</option>
                 <option value="Other">Other</option>
               </select>
-            </div>
+            </div> */}
             <button
               type="submit"
               className="md:ml-4 mt-4 md:mt-0 w-full md:w-auto px-8 py-4 rounded-lg bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
