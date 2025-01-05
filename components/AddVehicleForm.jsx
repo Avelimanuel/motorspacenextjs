@@ -18,7 +18,7 @@ const predefinedFeatures = [
   "Fog lights",
   "Sun roof",
   "Non hybrid",
-  "Hybrid"
+  "Hybrid",
 ];
 
 const AddVehicleForm = () => {
@@ -31,11 +31,10 @@ const AddVehicleForm = () => {
     try {
       const formData = new FormData(event.target);
       await addVehicle(formData); // Call the backend function
-      alert("Vehicle added successfully!");
+
       event.target.reset(); // Reset the form after success
     } catch (error) {
       console.error("Error adding vehicle:", error);
-      alert("Failed to add vehicle. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -53,7 +52,10 @@ const AddVehicleForm = () => {
       {/* Make, Model, Year */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div>
-          <label htmlFor="make" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="make"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Make
           </label>
           <input
@@ -190,7 +192,10 @@ const AddVehicleForm = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="color" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="color"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Color
           </label>
           <input
