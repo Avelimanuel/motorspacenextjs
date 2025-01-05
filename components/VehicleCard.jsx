@@ -24,9 +24,9 @@ const VehicleCard = ({ vehicle }) => {
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i className="fa-solid fa-bed text-green-900">Engine - </i>
+            <i className="fa-solid fa-bed text-green-900">Engine : </i>
             <span className="md:hidden lg:inline text-green-900">
-              {vehicle.engineSize}
+              {vehicle.engineSize} cc
             </span>
           </p>
           <p>
@@ -38,7 +38,7 @@ const VehicleCard = ({ vehicle }) => {
           <p>
             <i className="fa-solid fa-ruler-combined"></i>
             <span className="md:hidden lg:inline text-green-900">
-              Mileage - {vehicle.mileage} km
+              Mileage : {vehicle.mileage} km
             </span>
           </p>
         </div>

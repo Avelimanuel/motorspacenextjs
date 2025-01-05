@@ -85,7 +85,7 @@ const Navbar = () => {
               <div className="flex items-center">
                 <button className="flex items-center text-white bg-blue-800 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
                   <i className="fa-brands fa-google text-white mr-2"></i>
-                  <span>Get in touch</span>
+                  <Link href={"/contact"}>Get in touch</Link>
                 </button>
               </div>
             </div>
