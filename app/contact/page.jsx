@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa"; // Import the WhatsApp icon from react-icons
 
 const ContactPage = () => {
   return (
@@ -16,8 +18,10 @@ const ContactPage = () => {
 
         {/* Contact Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white shadow-lg rounded-lg p-6 lg:p-12">
-          {/* Left Column */}
+          {/* Left Column: Contact Information */}
           <div className="space-y-8">
+            <h3 className="text-lg font-bold text-gray-700">Contact Details</h3>
+
             {/* Phone */}
             <div className="flex items-center space-x-4">
               <span className="text-red-600 text-4xl">📞</span>
@@ -31,6 +35,32 @@ const ContactPage = () => {
               </div>
             </div>
 
+            {/* WhatsApp */}
+            <div className="flex items-center space-x-4">
+              
+              <Link
+                    href="https://wa.me/254716884011"
+                    target="_blank"
+                    className="hover:underline flex items-center"
+                  >
+                    <FaWhatsapp className="text-green-600 text-4xl" />
+                  </Link>
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800">
+                  WhatsApp
+                </h4>
+                <p className="text-gray-700 text-sm">
+                  <Link
+                    href="https://wa.me/254716884011"
+                    target="_blank"
+                    className="hover:underline flex items-center"
+                  >
+                    Chat with us on WhatsApp
+                  </Link>
+                </p>
+              </div>
+            </div>
+
             {/* Location */}
             <div className="flex items-center space-x-4">
               <span className="text-red-600 text-4xl">📍</span>
@@ -38,7 +68,9 @@ const ContactPage = () => {
                 <h4 className="text-lg font-semibold text-gray-800">
                   Location
                 </h4>
-                <p className="text-gray-700 text-sm">Kiambu Road, Kenya</p>
+                <p className="text-gray-700 text-sm">
+                  Kiambu Road
+                </p>
               </div>
             </div>
 
@@ -62,9 +94,7 @@ const ContactPage = () => {
             <div className="flex items-center space-x-4">
               <span className="text-red-600 text-4xl">🌐</span>
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">
-                  Website
-                </h4>
+                <h4 className="text-lg font-semibold text-gray-800">Website</h4>
                 <p className="text-gray-700 text-sm">
                   <Link
                     href="https://motorspace.vercel.app"
@@ -84,6 +114,7 @@ const ContactPage = () => {
               Follow Us on Social Media
             </h3>
             <div className="flex flex-wrap gap-4">
+              {/* Facebook */}
               <Link
                 href="https://facebook.com"
                 target="_blank"
@@ -91,6 +122,8 @@ const ContactPage = () => {
               >
                 Facebook
               </Link>
+
+              {/* Twitter */}
               <Link
                 href="https://twitter.com"
                 target="_blank"
@@ -98,6 +131,8 @@ const ContactPage = () => {
               >
                 Twitter
               </Link>
+
+              {/* Instagram */}
               <Link
                 href="https://instagram.com"
                 target="_blank"
@@ -105,33 +140,7 @@ const ContactPage = () => {
               >
                 Instagram
               </Link>
-              <Link
-                href="https://linkedin.com"
-                target="_blank"
-                className="flex items-center justify-center text-center text-blue-700 bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-sm"
-              >
-                LinkedIn
-              </Link>
-              <Link
-                href="https://wa.me/254716884011"
-                target="_blank"
-                className="flex items-center justify-center text-center text-green-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-sm"
-              >
-                WhatsApp
-              </Link>
             </div>
-          </div>
-        </div>
-
-        {/* Map Section */}
-        <div className="mt-12">
-          <h2 className="text-center text-2xl font-bold text-gray-700 mb-6">
-            Find Us Here
-          </h2>
-          <div className="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-            <p className="text-gray-700">
-              Google Map Placeholder (Embed your location here)
-            </p>
           </div>
         </div>
       </div>
