@@ -71,14 +71,7 @@ const VehicleSchema = new Schema(
   },
   { timestamps: true }
 );
-// Add a virtual field to generate the slug
-VehicleSchema.virtual("slug").get(function () {
-  return `${this.make.toLowerCase()}-${this.model.toLowerCase()}-${this._id}`;
-});
 
-// Ensure `toJSON` includes the virtual field
-VehicleSchema.set("toJSON", { virtuals: true });
-VehicleSchema.set("toObject", { virtuals: true });
 
 const Vehicle = models.Vehicle || model("Vehicle", VehicleSchema);
 

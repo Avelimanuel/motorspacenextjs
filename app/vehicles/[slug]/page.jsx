@@ -6,10 +6,10 @@ import VehicleImages from "@/components/VehicleImages";
 import mongoose from "mongoose";
 
 const SingleVehiclePage = async ({ params }) => {
-  const { slug } = params; // Get the slug (make-model) from the URL
+  const { slug } = params; 
   await connectToDatabase();
 
-  // Split the slug into _id, make, and model
+  
   const [ make, model,_id] = slug.split("-");
   console.log("Extracted _id:", _id);
   console.log("Extracted make:", make);
@@ -34,7 +34,7 @@ const SingleVehiclePage = async ({ params }) => {
     );
   }
 
-  // Find the vehicle by _id, make, and model
+ 
   const single_vehicle = await Vehicle.findOne({ _id, make, model }).lean();
 
   if (!single_vehicle) {
