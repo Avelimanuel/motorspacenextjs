@@ -11,11 +11,9 @@ const SingleVehiclePage = async ({ params }) => {
 
   
   const [ make, model,_id] = slug.split("-");
-  console.log("Extracted _id:", _id);
-  console.log("Extracted make:", make);
-  console.log("Extracted model:", model);
+  
 
-  // Validate the _id
+  
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return (
       <div className="text-center py-16">
