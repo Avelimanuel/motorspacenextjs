@@ -3,16 +3,39 @@ import connectToDatabase from "@/config/databaseconnection";
 import VehicleHeaderImage from "@/components/VehicleHeaderImage";
 import Link from "next/link";
 import VehicleImages from "@/components/VehicleImages";
+import mongoose from "mongoose";
 
 const SingleVehiclePage = async ({ params }) => {
   const { slug } = params; // Get the slug (make-model) from the URL
   await connectToDatabase();
 
-  // Split the slug into make and model
-  const [make, model] = slug.split("-");
+  // Split the slug into _id, make, and model
+  const [ make, model,_id] = slug.split("-");
+  console.log("Extracted _id:", _id);
+  console.log("Extracted make:", make);
+  console.log("Extracted model:", model);
 
-  // Find the vehicle by make and model
-  const single_vehicle = await Vehicle.findOne({ make, model }).lean();
+  // Validate the _id
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return (
+      <div className="text-center py-16">
+        <h1 className="text-4xl font-bold text-gray-900">Invalid Vehicle ID</h1>
+        <p className="text-gray-600 mt-4">
+          The vehicle ID in the URL is invalid. Please check the URL and try
+          again.
+        </p>
+        <Link
+          href="/vehicles"
+          className="text-blue-600 hover:text-blue-800 text-lg font-semibold mt-6 inline-block"
+        >
+          Back to Vehicles
+        </Link>
+      </div>
+    );
+  }
+
+  // Find the vehicle by _id, make, and model
+  const single_vehicle = await Vehicle.findOne({ _id, make, model }).lean();
 
   if (!single_vehicle) {
     return (
@@ -127,7 +150,10 @@ const SingleVehiclePage = async ({ params }) => {
           )}
         </div>
       </section>
-      <VehicleImages single_vehicle={single_vehicle}  image={single_vehicle.images} />
+      <VehicleImages
+        single_vehicle={single_vehicle}
+        image={single_vehicle.images}
+      />
     </>
   );
 };

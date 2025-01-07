@@ -61,7 +61,7 @@ async function addVehicle(formData) {
 
   // Revalidate and redirect
   revalidatePath("/", "layout");
-  redirect(`/vehicles/${newVehicle.make}-${newVehicle.model}`);
+  redirect(`/vehicles/${newVehicle.make}-${newVehicle.model}-${newVehicle._id}`);
 }
 
 export default addVehicle;
