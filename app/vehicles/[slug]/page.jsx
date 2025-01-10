@@ -6,7 +6,7 @@ import VehicleImages from "@/components/VehicleImages";
 import mongoose from "mongoose";
 
 const SingleVehiclePage = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
   await connectToDatabase();
 
   const [make, model, _id] = slug.split("-");
