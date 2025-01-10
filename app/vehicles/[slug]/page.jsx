@@ -6,14 +6,11 @@ import VehicleImages from "@/components/VehicleImages";
 import mongoose from "mongoose";
 
 const SingleVehiclePage = async ({ params }) => {
-  const { slug } = params; 
+  const { slug } = params;
   await connectToDatabase();
 
-  
-  const [ make, model,_id] = slug.split("-");
-  
+  const [make, model, _id] = slug.split("-");
 
-  
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return (
       <div className="text-center py-16">
@@ -32,7 +29,6 @@ const SingleVehiclePage = async ({ params }) => {
     );
   }
 
- 
   const single_vehicle = await Vehicle.findOne({ _id, make, model }).lean();
 
   if (!single_vehicle) {
@@ -80,6 +76,10 @@ const SingleVehiclePage = async ({ params }) => {
       <VehicleHeaderImage
         single_vehicle={single_vehicle}
         image={single_vehicle.images[0]}
+      />
+      <VehicleImages
+        single_vehicle={single_vehicle}
+        image={single_vehicle.images}
       />
 
       {/* Back Link Section */}
@@ -148,10 +148,7 @@ const SingleVehiclePage = async ({ params }) => {
           )}
         </div>
       </section>
-      <VehicleImages
-        single_vehicle={single_vehicle}
-        image={single_vehicle.images}
-      />
+      {/* Vehicle images */}
     </>
   );
 };
