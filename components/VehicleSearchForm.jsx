@@ -10,7 +10,7 @@ const VehicleSearch = () => {
     e.preventDefault();
 
     if (vehicleName.trim() === "") {
-      router.push("/vehicles"); // Redirect to /vehicles if input is empty
+      router.push("/vehicles"); 
     } else {
       const query = `?vehicleName=${vehicleName.trim()}`; 
       router.push(`/vehicles/search-results${query}`);
