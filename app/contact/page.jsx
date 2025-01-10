@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa"; // Import the WhatsApp icon from react-icons
+import { FaWhatsapp } from "react-icons/fa"; 
 
 const ContactPage = () => {
   return (

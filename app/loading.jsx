@@ -12,7 +12,7 @@ const LoadingPage = () => {
   };
 
   useEffect(() => {
-    // Set a timeout for 3 seconds (3000ms)
+    
     const timer = setTimeout(() => {
       setIsLoading(false); // After 3 seconds, hide the loading page
     }, 5000);
