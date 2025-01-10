@@ -2,7 +2,7 @@ import "@/assets/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 export const metadata = {
-  title: "Motor_Space kenya",
+  title: "Motor space kenya",
   description:
     "Discover new and used cars for sale at unbeatable prices. Browse SUVs, sedans, and electric vehicles. Easy financing options and trade-ins available.",
   keywords: [
