@@ -20,7 +20,7 @@ const VehicleImages = ({ single_vehicle, image }) => {
                   alt={`${single_vehicle.make}`}
                   ref={ref}
                   onClick={open}
-                  className="object-cover mx-auto rounded-xl"
+                  className="object-cover mx-auto rounded-xl cursor-pointer"
                   width={1200}
                   height={600}
                   priority={true}
@@ -43,7 +43,7 @@ const VehicleImages = ({ single_vehicle, image }) => {
                         ref={ref}
                         onClick={open}
                         alt={`${single_vehicle.make}`}
-                        className="object-cover rounded-xl"
+                        className="object-cover rounded-xl cursor-pointer"
                         layout="fill"
                         priority={true}
                       />
