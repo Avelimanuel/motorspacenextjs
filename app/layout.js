@@ -1,6 +1,7 @@
 import "@/assets/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import "photoswipe/dist/photoswipe.css"
 export const metadata = {
   title: "Motor space kenya",
   description:
