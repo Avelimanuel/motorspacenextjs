@@ -58,10 +58,10 @@ const VehicleCard = ({ vehicle }) => {
           </div>
         </div>
 
-        {/* Divider */}
+        
         <div className="border-t border-gray-200 my-4"></div>
 
-        {/* Location and Action Button */}
+       
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-orange-600">
             <i className="fa-solid fa-location-dot text-lg"></i>
