@@ -10,7 +10,8 @@ const VehiclesPage = async ({ searchParams }) => {
   await connectToDatabase();
   const skip = (page - 1) * pageSize;
   const total = await Vehicle.countDocuments({});
-  const vehicles = await Vehicle.find({}).skip(skip).limit(pageSize);
+  console.log(`The total vehicles are ${total}`)
+  const vehicles = await Vehicle.find({}).skip(skip).limit(pageSize).lean();
 
   const showPagination = total > pageSize;
 

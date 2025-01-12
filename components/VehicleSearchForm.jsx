@@ -1,19 +1,31 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const VehicleSearch = () => {
-  const [vehicleName, setVehicleName] = useState(""); 
+  const [vehicleName, setVehicleName] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    if (vehicleName.trim() === "") {
-      router.push("/vehicles"); 
-    } else {
-      const query = `?vehicleName=${vehicleName.trim()}`; 
-      router.push(`/vehicles/search-results${query}`);
+    try {
+      if (vehicleName.trim() === "") {
+        router.push("/vehicles");
+      } else {
+        const query = `?vehicleName=${encodeURIComponent(vehicleName.trim())}`;
+        router.push(`/vehicles/search-results${query}`);
+      }
+      // Simulate a delay (e.g., while waiting for results)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      console.log("Searching for:", vehicleName);
+    } catch (error) {
+      console.error(`Search failed: ${error}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,15 +44,20 @@ const VehicleSearch = () => {
           placeholder="Enter car name"
           className="w-full px-5 py-4 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
           value={vehicleName}
-          onChange={(e) => setVehicleName(e.target.value)} 
+          onChange={(e) => setVehicleName(e.target.value)}
         />
       </div>
 
       <button
         type="submit"
-        className="md:ml-4 mt-4 md:mt-0 w-full md:w-auto px-8 py-4 rounded-lg bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
+        disabled={loading}
+        className={`w-full md:w-auto px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 ease-in-out ${
+          loading
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        }`}
       >
-        Search
+        {loading ? "Searching..." : "Search"}
       </button>
     </form>
   );

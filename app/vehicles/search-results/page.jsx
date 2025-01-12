@@ -8,7 +8,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 const SearchResultsPage = async ({ searchParams }) => {
   await connectToDatabase();
 
-  const vehicleName = searchParams?.vehicleName;
+  const vehicleName = await searchParams?.vehicleName;
 
   if (!vehicleName || vehicleName.trim() === "") {
     
