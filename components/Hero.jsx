@@ -9,7 +9,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 drop-shadow-md">
             Discover & Drive Your Dream Car
           </h1>
-          {/* Subheading */}
+          
           <p className="text-lg sm:text-xl md:text-2xl font-medium mb-10 max-w-2xl mx-auto drop-shadow-sm">
             Unleash Your Style, Drive the Future.
             <br />
@@ -18,7 +18,7 @@ const Hero = () => {
               0716 884 011
             </span>.
           </p>
-          {/* Vehicle Search Form */}
+         
           <div className="w-full max-w-2xl">
             <VehicleSearch />
           </div>
