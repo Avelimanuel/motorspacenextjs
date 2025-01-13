@@ -20,8 +20,8 @@ const VehicleSearch = () => {
         router.push(`/vehicles/search-results${query}`);
       }
       // Simulate a delay (e.g., while waiting for results)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Searching for:", vehicleName);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      
     } catch (error) {
       console.error(`Search failed: ${error}`);
     } finally {
