@@ -46,7 +46,7 @@ const VehicleCard = ({ vehicle }) => {
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-road text-green-600"></i>
-            <span>Mileage: {vehicle.mileage.toLocaleString()} km</span>
+            {/* <span>Mileage: {vehicle.mileage.toLocaleString()} km</span> */}
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-calendar-alt text-blue-500"></i>
