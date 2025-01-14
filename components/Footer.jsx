@@ -77,7 +77,7 @@ const Footer = () => {
             </p>
             <p>
               <a href="mailto:info@motorspace.com" className="hover:underline">
-                info@motorspace.com
+                info.motorspace@gmail.com
               </a>
             </p>
             <p>Nairobi, Kenya</p>
