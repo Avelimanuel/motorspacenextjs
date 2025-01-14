@@ -9,7 +9,7 @@ const ContactPage = () => {
         {/* Page Title */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-red-600">
-            Get in Touch with Motorspace 🚗
+            Get in Touch with Motorspace 
           </h1>
           <p className="text-lg text-gray-600 mt-3">
             Contact us through the details below. We're here to help!
