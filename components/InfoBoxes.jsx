@@ -12,15 +12,21 @@ const InfoBoxes = () => {
               href="/vehicles"
               className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
             >
-              Browse Vehicles
+              Browse new Vehicles
             </Link>
           </div>
           <div className="bg-blue-100 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold">We enhance your automobile experience </h2>
-            <p className="mt-2 mb-4">
+            {/* <p className="mt-2 mb-4">
               Premium cars selected for
               you at Motor Space
-            </p>
+            </p> */}
+            <Link
+              href="/locallyused"
+              className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
+            >
+              Browse locally used Vehicles
+            </Link>
             
           </div>
         </div>
