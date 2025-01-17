@@ -54,5 +54,5 @@ const LocallyUsed = new Schema({
   },
 },{timestamps:true});
 
-const LocallyUsedVehicles = models.LocallyUsed || model("Locallyused",LocallyUsed)
+const LocallyUsedVehicles = models.Locallyusedvehicles || model("Locallyusedvehicles",LocallyUsed)
 export default LocallyUsedVehicles;
