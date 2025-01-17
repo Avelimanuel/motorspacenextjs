@@ -10,9 +10,10 @@ const connectToLocalVehicleDb = async () =>{
         if(!process.env.LOCAL_VEHICLES_MONGODB_CONNECTION_URI){
             console.log('LOCAL_VEHICLES_MONGODB_CONNECTION_URI is not set/must be defined');
         }
-        await mongoose.connect(process.env.LOCAL_VEHICLES_MONGODB_CONNECTION_URI)
+        await mongoose.createConnection(process.env.LOCAL_VEHICLES_MONGODB_CONNECTION_URI)
         dbconnected = true;
         console.log('Connected to local vehicle db');
+        return
         
         
     } catch (error) {

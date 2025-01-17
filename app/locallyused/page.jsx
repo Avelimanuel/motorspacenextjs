@@ -1,16 +1,16 @@
 import VehicleCard from "@/components/VehicleCard";
 import LocallyUsedVehicles from "@/models/LocallyUsed";
-import connectToLocalVehicleDb from "@/config/localvehicledbconnection";
+import connectToDatabase from "@/config/databaseconnection";
 import VehicleSearch from "@/components/VehicleSearchForm";
 
 const LocallyUsed = async () => {
-  await connectToLocalVehicleDb();
+  await connectToDatabase()
   const localvehicles = await LocallyUsedVehicles.find({});
 
   return (
     <section className="px-4 py-6">
       <div className="max-width-7xl mx-auto flex flex-col items-start sm:px-6 lg:px-8">
-        <VehicleSearch />
+        {/* <VehicleSearch /> */}
       </div>
       <div className="container-xl lg:container m-auto px-4 py-6">
         {localvehicles.length === 0 ? (

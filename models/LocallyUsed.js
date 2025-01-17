@@ -21,7 +21,7 @@ const LocallyUsed = new Schema({
     required: true,
     trim: true,
   },
-  milage: {
+  mileage: {
     type: String,
     required: true,
     trim: true,
