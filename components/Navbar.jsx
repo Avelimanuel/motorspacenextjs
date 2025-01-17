@@ -5,7 +5,7 @@ import Link from "next/link";
 const Navbar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
       <nav className="bg-blue-100 border-b border-blue-500">
@@ -68,14 +68,34 @@ const Navbar = () => {
                   >
                     Vehicles
                   </Link>
-                  {isLoggedIn && (<Link
-                    href="/vehicles/addvehicle"
+                  <Link
+                    href="/locallyused"
                     className={`${
-                      pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
+                      pathname === "/locallyused" ? "bg-blue-300" : ""
                     } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
                   >
-                    Add Vehicle
-                  </Link>)}
+                    Locally used
+                  </Link>
+                  {isLoggedIn && (
+                    <Link
+                      href="/vehicles/addvehicle"
+                      className={`${
+                        pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
+                      } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
+                    >
+                      Add new vehicle
+                    </Link>
+                  )}
+                  {isLoggedIn && (
+                    <Link
+                      href="/vehicles/addLocalVehicle"
+                      className={`${
+                        pathname === "/vehicles/addLocalVehicle" ? "bg-blue-300" : ""
+                      } text-black hover:bg-blue-400 hover:text-white rounded-md px-3 py-2 `}
+                    >
+                      Add local vehicle
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -114,14 +134,16 @@ const Navbar = () => {
               >
                 vehicles
               </Link>
-             {isLoggedIn && ( <Link
-                href="/vehicles/addvehicle"
-                className={`${
-                  pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
-                } text-black hover:bg-blue-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium `}
-              >
-                Add vehicle
-              </Link>)}
+              {isLoggedIn && (
+                <Link
+                  href="/vehicles/addvehicle"
+                  className={`${
+                    pathname === "/vehicles/addvehicle" ? "bg-blue-300" : ""
+                  } text-black hover:bg-blue-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium `}
+                >
+                  Add vehicle
+                </Link>
+              )}
             </div>
           </div>
         )}

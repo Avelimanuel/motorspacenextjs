@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import addVehicle from "@/app/actions/addvehicle";
+import AddLocalVehicle from "@/app/actions/addLocalVehicle";
 
 const predefinedFeatures = [
   "Heated Seats",
@@ -21,32 +21,34 @@ const predefinedFeatures = [
   "Hybrid",
 ];
 
-const AddVehicleForm = () => {
+const AddLocalVehicleForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-
+    const formData = new FormData(event.target);
     try {
-      const formData = new FormData(event.target);
-      await addVehicle(formData); // Call the backend function
-
-      event.target.reset(); // Reset the form after success
+      const res = await AddLocalVehicle(formData);
+      if (res.ok) {
+        alert("Local vehicle added successfully");
+        event.target.reset();
+      } else {
+        alert("Failed to add local vehicle");
+      }
     } catch (error) {
-      console.error("Error adding vehicle:", error);
+      console.log(`Failed to add vehicle ${error}`);
     } finally {
       setIsSubmitting(false);
     }
   };
-
   return (
     <form
       onSubmit={handleSubmit}
       className="max-w-3xl mx-auto p-6 bg-gray-100 shadow-md rounded-lg"
     >
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
-        Add a Local New Vehicle
+        Add a locally used vehicle
       </h1>
 
       {/* Make, Model, Year */}
@@ -254,6 +256,7 @@ const AddVehicleForm = () => {
           type="file"
           id="images"
           name="images"
+          accept="image/jpeg, image/png"
           multiple
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
           required
@@ -294,4 +297,4 @@ const AddVehicleForm = () => {
   );
 };
 
-export default AddVehicleForm;
+export default AddLocalVehicleForm;
