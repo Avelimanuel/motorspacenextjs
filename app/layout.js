@@ -38,7 +38,7 @@ const MainLayout = ({ children }) => {
         <meta property="og:url" content="https://motorspace.co.ke" />
         <meta
           property="og:image"
-          content="https://motorspace.co.ke/images/properties/Hondafithybrid.jpg"  // Replace with the URL of your car image
+          content="https://motorspace.co.ke/images/properties/hondaFitHybrid1.jpg"  // Replace with the URL of your car image
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Motor Space Kenya" />
@@ -49,7 +49,7 @@ const MainLayout = ({ children }) => {
         <meta name="twitter:description" content={metadata.description} />
         <meta
           name="twitter:image"
-          content="https://motorspace.co.ke/images/properties/Hondafithybrid.jpg" // Replace with the URL of your car image
+          content="https://motorspace.co.ke/images/properties/hondaFitHybrid1.jpg" // Replace with the URL of your car image
         />
       </head>
       <body>
