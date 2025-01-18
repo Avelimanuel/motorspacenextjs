@@ -20,7 +20,7 @@ const SingleVehiclePage = async ({ params }) => {
           again.
         </p>
         <Link
-          href="/vehicles"
+          href="/locallyused"
           className="text-blue-600 hover:text-blue-800 text-lg font-semibold mt-6 inline-block"
         >
           Back to Vehicles
