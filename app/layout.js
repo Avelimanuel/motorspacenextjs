@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "photoswipe/dist/photoswipe.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata = {
   title: "Motor space kenya",
   description:
@@ -28,6 +29,7 @@ const MainLayout = ({ children }) => {
         <main>
           {children}
           <Analytics />
+          <SpeedInsights />
         </main>
         <Footer />
       </body>
