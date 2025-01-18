@@ -1,4 +1,4 @@
-import VehicleCard from "@/components/VehicleCard";
+import LocalVehicleCard from "@/components/Localvehiclecard";
 import LocallyUsedVehicles from "@/models/LocallyUsed";
 import connectToDatabase from "@/config/databaseconnection";
 import VehicleSearch from "@/components/VehicleSearchForm";
@@ -18,7 +18,7 @@ const LocallyUsed = async () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {localvehicles.map((localvehicle) => (
-              <VehicleCard key={localvehicle._id} vehicle={localvehicle} />
+              <LocalVehicleCard key={localvehicle._id} vehicle={localvehicle} />
             ))}
           </div>
         )}
