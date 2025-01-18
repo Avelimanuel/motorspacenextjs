@@ -86,7 +86,7 @@ const SingleVehiclePage = async ({ params }) => {
       <section className="bg-gray-50 py-4">
         <div className="container m-auto max-w-4xl px-6">
           <Link
-            href="/vehicles"
+            href="/locallyused"
             className="text-blue-600 hover:text-blue-800 flex items-center text-lg font-semibold"
           >
             <i className="fas fa-arrow-left mr-2"></i> Back to Vehicles
