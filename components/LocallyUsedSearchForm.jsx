@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const VehicleSearch = () => {
+const LocallyUsedSearchForm = () => {
   const [vehicleName, setVehicleName] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -17,7 +17,7 @@ const VehicleSearch = () => {
         router.push("/vehicles");
       } else {
         const query = `?vehicleName=${encodeURIComponent(vehicleName.trim())}`;
-        router.push(`/vehicles/search-results${query}`);
+        router.push(`/locallyused/local-vehicle-search-results${query}`);
       }
       // Simulate a delay (e.g., while waiting for results)
       await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -40,7 +40,7 @@ const VehicleSearch = () => {
         <input
           type="text"
           id="vehicleName"
-          placeholder="Enter car name"
+          placeholder="Enter a locally used car name"
           className="w-full px-5 py-4 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
           value={vehicleName}
           onChange={(e) => setVehicleName(e.target.value)}
@@ -62,4 +62,4 @@ const VehicleSearch = () => {
   );
 };
 
-export default VehicleSearch;
+export default LocallyUsedSearchForm;
