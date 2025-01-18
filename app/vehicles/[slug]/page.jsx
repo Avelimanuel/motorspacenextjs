@@ -1,6 +1,7 @@
 import Vehicle from "@/models/Vehicle";
 import connectToDatabase from "@/config/databaseconnection";
 import VehicleHeaderImage from "@/components/VehicleHeaderImage";
+import LocallyUsedVehicles from "@/models/LocallyUsed";
 import Link from "next/link";
 import VehicleImages from "@/components/VehicleImages";
 import mongoose from "mongoose";
