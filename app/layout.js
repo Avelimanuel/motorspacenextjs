@@ -3,9 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "photoswipe/dist/photoswipe.css";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+
 export const metadata = {
-  title: "Motor space kenya",
+  title: "Motor Space Kenya",
   description:
     "Discover new and used cars for sale in Kenya at unbeatable prices. Browse SUVs, sedans, and electric vehicles. Easy financing options and trade-ins available.",
   keywords: [
@@ -21,15 +21,42 @@ export const metadata = {
     "car financing in Kenya",
   ],
 };
+
 const MainLayout = ({ children }) => {
   return (
-    <html>
+    <html lang="en">
+      <head>
+        {/* General Meta Tags */}
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:url" content="https://motorspace.co.ke" />
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/properties/audi1.jpg`}  // Replace with the URL of your car image
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Motor Space Kenya" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta
+          name="twitter:image"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/properties/audi1.jpg`} // Replace with the URL of your car image
+        />
+      </head>
       <body>
         <Navbar />
         <main>
           {children}
           <Analytics />
-          <SpeedInsights />
         </main>
         <Footer />
       </body>
