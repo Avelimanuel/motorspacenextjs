@@ -39,7 +39,7 @@ const SingleVehiclePage = async ({ params }) => {
           The vehicle you are looking for does not exist or has been removed.
         </p>
         <Link
-          href="/vehicles"
+          href="/locallyused"
           className="text-blue-600 hover:text-blue-800 text-lg font-semibold mt-6 inline-block"
         >
           Back to Vehicles
