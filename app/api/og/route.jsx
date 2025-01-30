@@ -7,7 +7,7 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const hasVehicleName = searchParams.has("vehicleName");
     const carname = hasVehicleName
-      ? searchParams.get("vehicleName") // Use the correct parameter here
+      ? searchParams.get("vehicleName") 
       : "Motor Space Kenya";
 
     return new ImageResponse(
