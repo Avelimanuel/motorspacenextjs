@@ -1,11 +1,24 @@
+"use client";
+
+import { useTransition, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Loader } from "lucide-react";
 
 const VehicleCard = ({ vehicle }) => {
+  const [isPending, startTransition] = useTransition();
+  const [loading, setLoading] = useState(false);
+
+  const handleNavigation = () => {
+    startTransition(async()=>{
+      
+    })
+  };
+
   return (
     <div className="rounded-xl shadow-lg relative bg-white transform hover:scale-105 transition-transform duration-300">
       {/* Image Section */}
-      <Link href={`/vehicles/${vehicle.make}-${vehicle.model}-${vehicle._id}`}>
+      <Link href={`/vehicles/${vehicle.make}-${vehicle.model}-${vehicle._id}`} onClick = {handleNavigation}>
         <Image
           src={vehicle.images[0]}
           width="0"
@@ -16,6 +29,11 @@ const VehicleCard = ({ vehicle }) => {
           priority
         />
       </Link>
+      {isPending && (
+        <div className="absolute inset-0 flex-item-center justify-center bg-white/60">
+          <Loader className= "w-6 h-6 animate-spin text-gray-700"/>
+        </div>
+      )}
 
       {/* Card Content */}
       <div className="p-5">
@@ -45,10 +63,6 @@ const VehicleCard = ({ vehicle }) => {
             <span>{vehicle.fuelType}</span>
           </div>
           <div className="flex items-center gap-2">
-            <i className="fa-solid fa-road text-green-600"></i>
-            {/* <span>Mileage: {vehicle.mileage.toLocaleString()} km</span> */}
-          </div>
-          <div className="flex items-center gap-2">
             <i className="fa-solid fa-calendar-alt text-blue-500"></i>
             <span>{vehicle.yearOfManufacture} Model</span>
           </div>
@@ -58,10 +72,8 @@ const VehicleCard = ({ vehicle }) => {
           </div>
         </div>
 
-        
         <div className="border-t border-gray-200 my-4"></div>
 
-       
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-orange-600">
             <i className="fa-solid fa-location-dot text-lg"></i>
@@ -69,9 +81,10 @@ const VehicleCard = ({ vehicle }) => {
           </div>
           <Link
             href={`/vehicles/${vehicle.make}-${vehicle.model}-${vehicle._id}`}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-center text-sm font-medium shadow-md"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-center text-sm font-medium shadow-md flex items-center gap-2"
+            disabled={isPending || loading}
           >
-            View Details
+            {isPending || loading ? <Loader className="animate-spin" size={20} /> : "View Details"}
           </Link>
         </div>
       </div>
